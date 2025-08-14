@@ -2,10 +2,11 @@
 const clock = document.getElementById("clock");
 function updateClock() {
   const now = new Date();
-  clock.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  clock.textContent = timeString;
   clock.style.animation = "none";
-  void clock.offsetWidth;
-  clock.style.animation = "pageTurn 1s ease-in-out";
+  void clock.offsetWidth; // reflow
+  clock.style.animation = "flip 0.8s ease-in-out";
 }
 setInterval(updateClock, 60000);
 updateClock();
@@ -28,7 +29,7 @@ studyBtn.onclick = () => {
   } else {
     // End session
     const endTime = new Date();
-    const duration = Math.round((endTime - startTime) / 1000 / 60); // in minutes
+    const duration = Math.round((endTime - startTime) / 1000 / 60);
     const note = prompt("What did you study?");
     if (note) {
       const entry = `${startTime.toLocaleTimeString()} - ${endTime.toLocaleTimeString()} (${duration} min) : ${note}`;
@@ -47,7 +48,7 @@ function saveLog(entry) {
   localStorage.setItem("studyLogs", JSON.stringify(logs));
 }
 
-// Load logs on page load
+// Load logs
 function addLogToUI(entry) {
   const li = document.createElement("li");
   li.textContent = entry;
@@ -55,7 +56,7 @@ function addLogToUI(entry) {
 }
 (JSON.parse(localStorage.getItem("studyLogs") || "[]")).forEach(addLogToUI);
 
-// Due date saving
+// Due dates
 const dateList = document.getElementById("dateList");
 document.getElementById("saveDate").onclick = () => {
   const date = document.getElementById("dueDate").value;

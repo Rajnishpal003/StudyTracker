@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Study Time Tracker</title>
+  <title>Study Tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
     <button id="closeSidebar">✖</button>
-    <h2>Study Log</h2>
-    <textarea id="studyNotes" placeholder="Write what you studied..."></textarea>
-    <button id="saveNote">Save Timestamp & Note</button>
+    <h2>Study History</h2>
     <ul id="logList"></ul>
 
     <h2>Due Dates</h2>
@@ -21,10 +19,11 @@
     <ul id="dateList"></ul>
   </div>
 
-  <!-- Main Clock Page -->
+  <!-- Main Page -->
   <div id="main">
-    <button id="toggleSidebar">☰</button>
+    <button id="toggleSidebar" class="sidebar-btn">☰</button>
     <div class="clock" id="clock"></div>
+    <button id="studyBtn" class="start-btn">▶</button>
   </div>
 
   <script src="script.js"></script>

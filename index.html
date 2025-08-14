@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Time Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <button id="closeSidebar">✖</button>
+    <h2>Study Log</h2>
+    <textarea id="studyNotes" placeholder="Write what you studied..."></textarea>
+    <button id="saveNote">Save Timestamp & Note</button>
+    <ul id="logList"></ul>
+
+    <h2>Due Dates</h2>
+    <input type="date" id="dueDate" />
+    <button id="saveDate">Mark Due Date</button>
+    <ul id="dateList"></ul>
+  </div>
+
+  <!-- Main Clock Page -->
+  <div id="main">
+    <button id="toggleSidebar">☰</button>
+    <div class="clock" id="clock"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
